@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$light-primary: mat.define-palette(mat.$cyan-palette);
+$light-accent: mat.define-palette(mat.$indigo-palette, 500);
+$light-warn: mat.define-palette(mat.$pink-palette, A400);
+
+$dark-primary: mat.define-palette(mat.$cyan-palette);
+$dark-accent: mat.define-palette(mat.$indigo-palette, 500);
+$dark-warn: mat.define-palette(mat.$pink-palette, A400);
+
+$default-typography: mat.define-typography-config(
+  $font-family: 'Comic Sans',
+);
+
+// @include mat.all-component-themes($brants-theme);
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-accent,
+    warn: $dark-warn,
+  ),
+  typography: $default-typography,
+  density: 0,
+));
+
+// Define a light theme
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $light-primary,
+    accent: $light-accent,
+    warn: $light-warn,
+  ),
+  typography: $default-typography,
+  density: 0,
+));
+
+// Apply the dark theme by default
+@include mat.all-component-themes($dark-theme);
+
+// Apply the light theme only when the user prefers light themes.
+@media (prefers-color-scheme: light) {
+  @include mat.all-component-themes($light-theme);
+}
+
+html, body { height: 100%; }
+body { margin: 0; }
