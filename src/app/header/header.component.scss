@@ -1,5 +1,7 @@
 header {
-    box-shadow: 0px 2px 24px -4px rgba(0,0,0,0.75);
+    position: relative;
+    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.2);
+    z-index: 100;
 
     a {
         text-decoration: none;
