@@ -11,7 +11,7 @@ $dark-accent: mat.define-palette(mat.$gray-palette, 500);
 $dark-warn: mat.define-palette(mat.$pink-palette, A400);
 
 $default-typography: mat.define-typography-config(
-  $font-family: 'Comic Sans',
+  $font-family: Verdana,
 );
 
 // Define a dark theme
