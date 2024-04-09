@@ -1,13 +1,11 @@
 ::ng-deep body {
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-main {
-    min-height: calc(100vh - 19.5em);
-    padding: 2em;
 }
 
 mat-sidenav {
     width: 250px;
+}
+
+mat-sidenav-content {
+    background-color: #ffffff;
 }
