@@ -9,5 +9,4 @@ import { FeaturedBlogsComponent } from '../featured-blogs/featured-blogs.compone
     imports: [FeaturedBlogsComponent]
 })
 export class HomePageComponent {
-
 }

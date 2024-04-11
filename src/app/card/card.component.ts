@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -11,5 +11,6 @@ import { MatChipsModule } from '@angular/material/chips';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-
+  @Input() width? = '400';
+  @Input() shadow? = '';
 }
