@@ -11,6 +11,6 @@ import { MatChipsModule } from '@angular/material/chips';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  @Input() width? = '400';
-  @Input() shadow? = '';
+  @Input() width = '400';
+  @Input() shadow = '';
 }
