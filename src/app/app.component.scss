@@ -1,9 +1,14 @@
 ::ng-deep html,
 ::ng-deep body {
-    box-sizing: border-box;
     height: 100%;
     padding: 0;
     margin: 0;
+}
+
+main {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 mat-sidenav {

@@ -1,12 +1,14 @@
-<app-header (sideNavToggle)="sidenav.toggle()"></app-header>
-<mat-sidenav-container>
-  <mat-sidenav #sidenav>
-    <app-navigation (onNavLinkClick)="sidenav.toggle()"></app-navigation>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-<app-footer></app-footer>
+<main>
+  <app-header (sideNavToggle)="sidenav.toggle()"></app-header>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <app-navigation (onNavLinkClick)="sidenav.toggle()"></app-navigation>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <section>
+        <router-outlet></router-outlet>
+      </section>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</main>

@@ -6,40 +6,21 @@ $light-primary: mat.define-palette(mat.$blue-palette, 500);
 $light-accent: mat.define-palette(mat.$indigo-palette, 500);
 $light-warn: mat.define-palette(mat.$pink-palette, A400);
 
-$dark-primary: mat.define-palette(mat.$purple-palette, 900);
-$dark-accent: mat.define-palette(mat.$gray-palette, 500);
-$dark-warn: mat.define-palette(mat.$pink-palette, A400);
-
-$default-typography: mat.define-typography-config(
-  $font-family: Verdana,
-);
-
-// Define a dark theme
-$dark-theme: mat.define-dark-theme((
-  color: (
-    primary: $dark-primary,
-    accent: $dark-accent,
-    warn: $dark-warn,
-  ),
-  typography: $default-typography,
-  density: 0,
-));
+$default-typography: mat.define-typography-config($font-family: 'Verdana, Tahoma', );
 
 // Define a light theme
-$light-theme: mat.define-light-theme((
-  color: (
-    primary: $light-primary,
-    accent: $light-accent,
-    warn: $light-warn,
-  ),
-  typography: $default-typography,
-  density: 0,
-));
+$light-theme: mat.define-light-theme((color: (primary: $light-primary,
+        accent: $light-accent,
+        warn: $light-warn,
+      ),
+      typography: $default-typography,
+      density: 0,
+    ));
 
-// Apply the dark theme by default
-@include mat.all-component-themes($dark-theme);
 
-// Apply the light theme only when the user prefers light themes.
-@media (prefers-color-scheme: light) {
-  @include mat.all-component-themes($light-theme);
-}
+// Apply the dark theme only when the user prefers dark themes.
+// @media (prefers-color-scheme: light) {
+//   @include mat.all-component-themes($dark-theme);
+// }
+
+@include mat.all-component-themes($light-theme);
