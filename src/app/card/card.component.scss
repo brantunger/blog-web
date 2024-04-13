@@ -6,3 +6,7 @@
 mat-card {
     margin: 1em;
 }
+
+:hover mat-card-content {
+    background-color: #eeeeee;
+}
