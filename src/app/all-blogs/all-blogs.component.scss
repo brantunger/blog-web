@@ -3,8 +3,14 @@ h1 {
     font-weight: bold;
 }
 
-section {
+.blog-container {
+    max-width: 1700px;
     display: flex;
     justify-content: center;
+}
+
+section {
+    display: flex;
+    // justify-content: space-evenly;
     flex-flow: row wrap;
 }
