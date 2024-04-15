@@ -1,3 +1,5 @@
+import {BehaviorSubject, Observable} from "rxjs";
+
 declare var google: any;
 import { Injectable } from '@angular/core';
 
@@ -5,17 +7,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  public loggedIn: boolean = false;
+  public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public loggedInObs: Observable<boolean> = this.loggedIn.asObservable();
   private token: any;
 
   constructor() { }
 
   login(token: any): void {
     this.token = token;
-    this.loggedIn = true;
+    this.loggedIn.next(true);
     // const payload = this.decodeToken(token.credential);
     const payload = token.credential;
-    console.log(payload);
     sessionStorage.setItem('loggedInUser', payload);
   }
 
@@ -23,13 +25,13 @@ export class AuthService {
     const token = sessionStorage.getItem('loggedInUser');
     if(token) {
       this.token = token;
-      this.loggedIn = true;
+      this.loggedIn.next(true);
     }
   }
 
   signOut(): void {
     this.token = undefined;
-    this.loggedIn = false;
+    this.loggedIn.next(false);
     sessionStorage.removeItem('loggedInUser');
     google.accounts.id.disableAutoSelect();
   }
