@@ -1,0 +1,6 @@
+<div id="google-btn"></div>
+@if(this.authService.loggedIn) {
+<button mat-button (click)="this.handleLogout()">Logout</button>
+}
+@else {
+}
