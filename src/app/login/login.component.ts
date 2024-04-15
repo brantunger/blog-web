@@ -1,5 +1,7 @@
+import {NgIf} from "@angular/common";
+
 declare var google: any;
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AuthService } from '../auth.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule, NgIf],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -28,6 +30,8 @@ export class LoginComponent implements OnInit {
     });
 
     // google.accounts.id.prompt(); // One-Tap
+
+    this.authService.loginFromStorage();
   }
 
   handleLogin(response: any) {
@@ -35,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(response);
     }
   }
-  
+
   handleLogout() {
     this.authService.signOut();
   }

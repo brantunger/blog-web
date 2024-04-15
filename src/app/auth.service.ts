@@ -11,18 +11,20 @@ export class AuthService {
   constructor() { }
 
   login(token: any): void {
-    const idToken = sessionStorage.getItem('loggedInUser');
-    if(idToken) {
-      this.token = idToken;
-      
-    }
-
     this.token = token;
     this.loggedIn = true;
     // const payload = this.decodeToken(token.credential);
     const payload = token.credential;
     console.log(payload);
     sessionStorage.setItem('loggedInUser', payload);
+  }
+
+  loginFromStorage(): void {
+    const token = sessionStorage.getItem('loggedInUser');
+    if(token) {
+      this.token = token;
+      this.loggedIn = true;
+    }
   }
 
   signOut(): void {

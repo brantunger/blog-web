@@ -1,6 +1,9 @@
+<!--@if(this.authService.loggedIn) {-->
+<!--<button mat-button (click)="this.handleLogout()">Logout</button>-->
+<!--}-->
+<!--@else {-->
+<!--<div id="google-btn"></div>-->
+<!--}-->
+
 <div id="google-btn"></div>
-@if(this.authService.loggedIn) {
-<button mat-button (click)="this.handleLogout()">Logout</button>
-}
-@else {
-}
+<button *ngIf="this.authService.loggedIn" mat-button (click)="this.handleLogout()">Logout</button>
