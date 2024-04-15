@@ -26,19 +26,6 @@ export class LoginComponent implements OnInit {
     this.renderGoogleLogin();
   }
 
-  handleLogin(response: any): void {
-    if (response) {
-      this.authService.login(response);
-      this.cdr.detectChanges();
-    }
-  }
-
-  handleLogout(): void {
-    this.authService.signOut();
-    this.cdr.detectChanges();
-    this.renderGoogleLogin();
-  }
-
   initGoogleLogin(): void {
     google.accounts.id.initialize({
       client_id: '243613699796-gc3jh6r1esvcmjh97760827ucu1fem0d.apps.googleusercontent.com',
@@ -54,5 +41,18 @@ export class LoginComponent implements OnInit {
       size: 'large',
       shape: 'rectangle'
     });
+  }
+
+  handleLogin(response: any): void {
+    if (response) {
+      this.authService.login(response);
+      this.cdr.detectChanges();
+    }
+  }
+
+  handleLogout(): void {
+    this.authService.signOut();
+    this.cdr.detectChanges();
+    this.renderGoogleLogin();
   }
 }
