@@ -1,7 +1,5 @@
-<div id="google-btn"></div>
-@if(this.authService.loggedInObs | async) {
-<button mat-button (click)="this.handleLogout()">Logout</button>
+@if (this.loggedIn) {
+  <button mat-button (click)="this.handleLogout()">Logout</button>
+} @else {
+  <div id="google-btn"></div>
 }
-<!--@else {-->
-<!--<div id="google-btn"></div>-->
-<!--}-->

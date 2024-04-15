@@ -1,17 +1,17 @@
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject} from "rxjs";
+import {Injectable} from '@angular/core';
 
 declare var google: any;
-import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  public loggedInObs: Observable<boolean> = this.loggedIn.asObservable();
   private token: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   login(token: any): void {
     this.token = token;
@@ -23,7 +23,7 @@ export class AuthService {
 
   loginFromStorage(): void {
     const token = sessionStorage.getItem('loggedInUser');
-    if(token) {
+    if (token) {
       this.token = token;
       this.loggedIn.next(true);
     }
