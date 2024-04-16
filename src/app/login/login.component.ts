@@ -1,19 +1,21 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth.service';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { AuthService } from '../auth.service';
+import { MatListModule } from '@angular/material/list';
 
 declare var google: any;
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule, MatListModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
   loggedIn: boolean = false;
+  @Input() navItem: boolean = false;
 
   constructor(private authService: AuthService, private cdr: ChangeDetectorRef) {
   }

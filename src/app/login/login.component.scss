@@ -1,0 +1,24 @@
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: lightgray;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-caption {
+    margin-left: 1em;
+}
+
+.google-btn {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
