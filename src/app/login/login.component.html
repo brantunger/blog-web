@@ -1,18 +1,16 @@
 @if (this.loggedIn && this.navItem) {
-<a mat-list-item (click)="this.handleLogout()">
-  <div class="nav-item">
-    <mat-icon>logout</mat-icon>
-    <span class="nav-caption">Logout</span>
-  </div>
-</a>
+  <a mat-list-item (click)="this.handleLogout()">
+    <div class="nav-item">
+      <mat-icon>logout</mat-icon>
+      <span class="nav-caption">Logout</span>
+    </div>
+  </a>
 } @else if (this.loggedIn && !this.navItem) {
-<button mat-button (click)="this.handleLogout()">Logout</button>
+  <button mat-button (click)="this.handleLogout()">Logout</button>
 } @else if (!this.loggedIn && this.navItem) {
-<div class="google-btn">
-  <div id="google-btn"></div>
-</div>
+  <div class="google-btn">
+    <div id="google-btn"></div>
+  </div>
 } @else if (!this.loggedIn && !this.navItem) {
-  <div id="google-btn"></div>
-} @else {
   <div id="google-btn"></div>
 }
