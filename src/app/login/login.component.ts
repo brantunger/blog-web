@@ -21,9 +21,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.loggedIn.subscribe((value: boolean) => {
+      this.loggedIn = value;
+      this.cdr.detectChanges();
+    });
     this.authService.loginFromStorage();
-    this.authService.loggedIn.subscribe((value: boolean) => this.loggedIn = value);
-    this.cdr.detectChanges();
     this.initGoogleLogin();
     this.renderGoogleLogin();
   }
@@ -48,13 +50,11 @@ export class LoginComponent implements OnInit {
   handleLogin(response: any): void {
     if (response) {
       this.authService.login(response);
-      this.cdr.detectChanges();
     }
   }
 
   handleLogout(): void {
     this.authService.signOut();
-    this.cdr.detectChanges();
     this.renderGoogleLogin();
   }
 }
