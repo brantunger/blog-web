@@ -1,27 +1,29 @@
 <mat-nav-list>
+  @if (this.loggedIn) {
     <a mat-list-item routerLink="" (click)="navigationClose()">
-        <div class="nav-item">
-            <mat-icon>person</mat-icon>
-            <span class="nav-caption">{{user?.firstName}} {{user?.lastName}}</span>
-        </div>
+      <div class="nav-item">
+        <mat-icon>person</mat-icon>
+        <span class="nav-caption">{{ user?.firstName }} {{ user?.lastName }}</span>
+      </div>
     </a>
-    <a mat-list-item routerLink="" (click)="navigationClose()">
-        <div class="nav-item">
-            <mat-icon color="accent">home</mat-icon>
-            <span class="nav-caption">Home</span>
-        </div>
-    </a>
-    <a mat-list-item routerLink="/users" (click)="navigationClose()">
-        <div class="nav-item">
-            <mat-icon>manage_accounts</mat-icon>
-            <span class="nav-caption">Manage Accounts</span>
-        </div>
-    </a>
-    <a mat-list-item routerLink="/news/create" (click)="navigationClose()">
-        <div class="nav-item">
-            <mat-icon>edit_document</mat-icon>
-            <span class="nav-caption">Create News</span>
-        </div>
-    </a>
-    <app-login [navItem]="true"></app-login>
+  }
+  <a mat-list-item routerLink="" (click)="navigationClose()">
+    <div class="nav-item">
+      <mat-icon color="accent">home</mat-icon>
+      <span class="nav-caption">Home</span>
+    </div>
+  </a>
+  <a mat-list-item routerLink="/users" (click)="navigationClose()">
+    <div class="nav-item">
+      <mat-icon>manage_accounts</mat-icon>
+      <span class="nav-caption">Manage Accounts</span>
+    </div>
+  </a>
+  <a mat-list-item routerLink="/news/create" (click)="navigationClose()">
+    <div class="nav-item">
+      <mat-icon>edit_document</mat-icon>
+      <span class="nav-caption">Create News</span>
+    </div>
+  </a>
+  <app-login [navItem]="true"></app-login>
 </mat-nav-list>

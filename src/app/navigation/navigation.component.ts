@@ -15,16 +15,20 @@ import {AuthService} from "../auth.service";
 })
 export class NavigationComponent implements OnInit {
   user?: User;
+  loggedIn: boolean = false;
+
   @Output() onNavLinkClick: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private authService: AuthService, private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
+    this.authService.loggedIn.subscribe((value: boolean) => this.loggedIn = value);
     this.authService.user.subscribe((user: User): void => {
       this.user = user;
       this.cdr.detectChanges();
     });
+
   }
 
   navigationClose(): void {
